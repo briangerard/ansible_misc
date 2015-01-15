@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ansible-playbook \
+    the_play.yml \
+    --extra-vars="ae=extra aev=extra age=extra agev=extra e=extra ev=extra fae=extra faev=extra fage=extra fagev=extra fe=extra fev=extra fge=extra fgev=extra ge=extra gev=extra"

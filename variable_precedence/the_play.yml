@@ -1,0 +1,26 @@
+---
+- name: "Where vars come from"
+  hosts: all
+  gather_facts: true
+  sudo: false
+  vars_files:
+    - vars/the_vars
+  vars:
+    aev: "vars"
+    agev: "vars"
+    agv: "vars"
+    av: "vars"
+    ev: "vars"
+    faev: "vars"
+    fagev: "vars"
+    fagv: "vars"
+    fav: "vars"
+    fev: "vars"
+    fgev: "vars"
+    fgv: "vars"
+    fv: "vars"
+    gev: "vars"
+    gv: "vars"
+    v: "vars"
+  tasks:
+    - include: tasks/make_a_file

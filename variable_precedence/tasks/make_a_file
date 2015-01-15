@@ -1,0 +1,4 @@
+- name: Make a file, yo
+  template:
+    src=files/the_file.j2
+    dest=/tmp/ansible_variable_precedence_test.txt
