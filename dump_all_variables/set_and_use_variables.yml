@@ -1,0 +1,23 @@
+---
+- name: Set and dump variables
+  hosts: localhost
+  vars:
+    list_of_things:
+      - name: first_name
+        value: first_value
+      - name: second_name
+        value: second_value
+  tasks:
+
+    - name: Grab a timestamp from date
+      command: "date +%Y%m%d%H%M%S"
+      register: the_date
+
+    - name: Create a datestamped copy of list_of_things
+      command: 'perl -e "($str,$date)=(shift,shift);print qq/$str-$date\n/" {{ item.value }} {{ the_date.stdout }}'
+      register: stamped
+      with_items: list_of_things
+
+    - name: Dump all the variables Ansible knows about
+      template: src=templates/dumpall.j2 dest=/tmp/ansible.all.variables
+

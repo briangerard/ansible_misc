@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ansible-playbook set_and_use_variables.yml
